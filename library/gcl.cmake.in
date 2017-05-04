@@ -1,0 +1,28 @@
+#===================================================================================
+#  GCL CMake configuration file
+#
+#             ** File generated automatically, do not modify **
+#
+#    This file will define the following variables:
+#      - gcl_FOUND	      : If CMake found this library.
+#      - gcl_INCLUDE_DIRS     : The include directories.
+#      - gcl_LIBRARIES	      : The libraries.
+#===================================================================================
+set( CMAKE_MODULE_PATH @CMAKE_MODULE_PATH@ )
+set( gcl_FOUND )
+
+# ======================================================
+# Include directories to add to the user project:
+# ======================================================
+set( gcl_INCLUDE_DIRS ${gcl_INCLUDE_DIRS} ${CMAKE_INSTALL_PREFIX}/include/${MAIN_LIBRARY_NAME})
+
+
+# ====================================================================
+# Link libraries one line for each library
+# ====================================================================
+if(ADD_GCL_CORE)
+SET(gcl_LIBRARIES  ${gcl_LIBRARIES} debug gcl_io_d optimized gcl_core)
+endif(ADD_GCL_CORE)
+if(ADD_GCL_IO)
+SET(gcl_LIBRARIES  ${gcl_LIBRARIES} debug gcl_io_d optimized gcl_io)
+endif(ADD_GCL_IO)
