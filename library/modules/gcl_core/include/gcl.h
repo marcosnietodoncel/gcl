@@ -1,9 +1,11 @@
 #ifndef _GCL_H_
 #define _GCL_H_
 
+#include "core_exp.h"
+
 namespace gcl
 {
-class GCL
+class CORE_LIB GCL
 {
 public:
 	GCL(){}

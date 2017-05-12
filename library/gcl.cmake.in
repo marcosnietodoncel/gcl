@@ -4,25 +4,27 @@
 #             ** File generated automatically, do not modify **
 #
 #    This file will define the following variables:
-#      - gcl_FOUND	      : If CMake found this library.
-#      - gcl_INCLUDE_DIRS     : The include directories.
-#      - gcl_LIBRARIES	      : The libraries.
+#      - GCL_FOUND	      : If CMake found this library.
+#      - GCL_INCLUDE_DIRS     : The include directories.
+#      - GCL_LIBRARIES	      : The libraries.
+#      - GCL_LIBRARY_DIR      : The installed dir to find libraries.
 #===================================================================================
 set( CMAKE_MODULE_PATH @CMAKE_MODULE_PATH@ )
-set( gcl_FOUND )
+set( GCL_FOUND )
 
 # ======================================================
 # Include directories to add to the user project:
 # ======================================================
-set( gcl_INCLUDE_DIRS ${gcl_INCLUDE_DIRS} ${CMAKE_INSTALL_PREFIX}/include/${MAIN_LIBRARY_NAME})
+set( GCL_INCLUDE_DIRS ${GCL_INCLUDE_DIRS} "@CMAKE_INSTALL_PREFIX@/include/@MAIN_LIBRARY_NAME@")
+message( GCL_INCLUDE_DIRS : ${GCL_INCLUDE_DIRS} )
 
 
 # ====================================================================
 # Link libraries one line for each library
 # ====================================================================
+OPTION( ADD_GCL_CORE "Add gcl_core to project" @ADD_GCL_CORE@ )
+
 if(ADD_GCL_CORE)
-SET(gcl_LIBRARIES  ${gcl_LIBRARIES} debug gcl_io_d optimized gcl_core)
+SET(GCL_LIBRARY_DIR "@CMAKE_INSTALL_PREFIX@/lib/@MAIN_LIBRARY_NAME@/")
+SET(GCL_LIBRARIES ${GCL_LIBRARIES} debug gcl_core_d optimized gcl_core)
 endif(ADD_GCL_CORE)
-if(ADD_GCL_IO)
-SET(gcl_LIBRARIES  ${gcl_LIBRARIES} debug gcl_io_d optimized gcl_io)
-endif(ADD_GCL_IO)

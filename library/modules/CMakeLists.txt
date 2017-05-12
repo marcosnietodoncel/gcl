@@ -6,6 +6,3 @@ if(ADD_GCL_CORE)
 add_subdirectory(gcl_core)
 endif(ADD_GCL_CORE)
 
-if(ADD_GCL_IO)
-add_subdirectory(gcl_io)
-endif(ADD_GCL_IO)
