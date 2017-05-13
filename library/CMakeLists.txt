@@ -31,3 +31,18 @@ configure_file("${CMAKE_CURRENT_SOURCE_DIR}/${MAIN_LIBRARY_NAME}.cmake.in" "${PR
 # Unix: /usr/local
 # Windows 64b: C:\Program Files\${PROJECT_NAME}
 install(FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake DESTINATION lib/cmake/${PROJECT_NAME})
+
+# Packaging 
+set(CPACK_GENERATOR "DEB")
+set(CPACK_DEBIAN_PACKAGE_NAME "GCL")
+set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Marcos Nieto")
+include(CPack)
+
+# To use it:
+# make package
+# sudo dpkg -i <packageName>-version-Linux.deb
+# The result will install the files at /usr/lib/GCL and /usr/include instead of
+# /usr/local/lib and /usr/local/include if doing sudo make install
+
+# Check installation: >dpkg -l | grep GCL
+# Uninstall
