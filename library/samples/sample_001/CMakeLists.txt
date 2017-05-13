@@ -23,7 +23,7 @@ set(SOURCE_FILES
 
 
 # Add all sources defined above to the program
-include_directories( ${GCL_SOURCE_DIR}/modules/gcl_core/include )
+include_directories( ${GCL_SOURCE_DIR}/modules/core/include )
 link_directories( ${CMAKE_BINARY_DIR}/bin )
 add_executable( ${SAMPLE_NAME} ${SOURCE_FILES} )
 
